@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import xarray as xr
 import streamlit as st
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
+#import cartopy.crs as ccrs
+#import cartopy.feature as cfeature
 
 dsh = xr.open_dataset('doy_mod_hist.nc', engine = 'netcdf4')
 dsn1 = xr.open_dataset('doy_mod_ssp126_nf.nc', engine = 'netcdf4')
@@ -37,23 +37,23 @@ period = st.sidebar.selectbox('Pick a time period', ['No selection', 'Present', 
 
 'You selected: ', scenario, period
 
-#if (scenario == 'historical') & (period == 'Present'):
-#    fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
-#    ax = ax.flatten()
-#    for i, m in enumerate(model_list):
-#        dsh.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
-#    plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
-#    plt.tight_layout()
-#    st.pyplot(fig)
-
 if (scenario == 'historical') & (period == 'Present'):
-    fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6), subplot_kw={'projection': ccrs.NorthPolarStereo()})
+    fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
-        dsh.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210, transform = ccrs.PlateCarree())
-        ax[i].coastlines()
-        ax[i].set_title(m)
+        dsh.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
     plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
+    plt.tight_layout()
+    st.pyplot(fig)
+
+#if (scenario == 'historical') & (period == 'Present'):
+#    fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6), subplot_kw={'projection': ccrs.NorthPolarStereo()})
+#    ax = ax.flatten()
+#    for i, m in enumerate(model_list):
+#        dsh.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210, transform = ccrs.PlateCarree())
+#        ax[i].coastlines()
+#        ax[i].set_title(m)
+#    plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
 
 elif (scenario == 'SSP-2.45') & (period == 'Near future (2040-2060)'):
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
