@@ -29,18 +29,30 @@ model_list = dsn2.model.values
 #    ax[i].set_title(m)
 #plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
 
-fig1, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
-ax = ax.flatten()
-for i, m in enumerate(model_list):
-    dsh.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
-plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
-plt.tight_layout()
-st.pyplot(fig1)
+scenario = st.sidebar.selectbox(
+    'Pick a scenario',['No selection', 'historical', 'SSP-2.45', 'SSP-5.85'])
+period = st.sidebar.selectbox('Pick a time period', ['No selection', 'Present', 'Near future (2040-2060)', 'Far future (2080-2100)'])
+#season = st.sidebar.selectbox('Pick a season', ['No selection', 'Spring', 'Autumn'])
 
-fig2, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
-ax = ax.flatten()
-for i, m in enumerate(model_list):
-    dsf5.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
-plt.suptitle('SSP-5.85, mean of 2080 - 2100 (far future)', fontsize = 16)
-plt.tight_layout()
-st.pyplot(fig2)
+'You selected: ', population, year, season
+
+if (scenario == 'historical') & (period == 'Present'):
+    fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
+    ax = ax.flatten()
+    for i, m in enumerate(model_list):
+        dsh.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
+    plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
+    plt.tight_layout()
+    st.pyplot(fig)
+
+elif (scenario == 'SSP-2.45') & (period == 'Near future (2040-2060)'):
+    fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
+    ax = ax.flatten()
+    for i, m in enumerate(model_list):
+        dsn2.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
+    plt.suptitle('SSP-2.45, mean of 2040 - 2060 (near future)', fontsize = 16)
+    plt.tight_layout()
+    st.pyplot(fig)
+
+else:
+    st.write('This combination is not available')
