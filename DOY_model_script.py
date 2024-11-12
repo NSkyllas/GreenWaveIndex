@@ -29,10 +29,18 @@ model_list = dsn2.model.values
 #    ax[i].set_title(m)
 #plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
 
-fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
+fig1, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
 ax = ax.flatten()
 for i, m in enumerate(model_list):
     dsh.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
 plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
 
-st.pyplot(fig)
+st.pyplot(fig1)
+
+fig2, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
+ax = ax.flatten()
+for i, m in enumerate(model_list):
+    dsf5.doy.sel(model = m).mean(['time']).plot(ax = ax[i], vmin = 100, vmax = 210)
+plt.suptitle('SSP-5.86, mean of 2080 - 2100 (far future)', fontsize = 16)
+
+st.pyplot(fig2)
