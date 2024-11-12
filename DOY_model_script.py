@@ -21,7 +21,6 @@ weights = np.cos(np.deg2rad(dsh.lat))
 weights.name = "weights"
 
 model_list = dsn2.model.values
-
 #fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6), subplot_kw={'projection': ccrs.NorthPolarStereo()})
 #ax = ax.flatten()
 #for i, m in enumerate(model_list):
