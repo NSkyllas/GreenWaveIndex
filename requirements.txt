@@ -11,4 +11,4 @@ pyshp==2.3
 cartopy==0.21.1
 cython>=0.29.28
 packaging>=21
-proj 0.2.0
+proj==0.2.0
