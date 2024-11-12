@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import xarray as xr
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
+import streamlit as st
 
 
 dsh = xr.open_dataset('doy_mod_hist.nc')
@@ -27,3 +28,5 @@ for i, m in enumerate(model_list):
     ax[i].coastlines()
     ax[i].set_title(m)
 plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
+
+st.pyplot(fig)
