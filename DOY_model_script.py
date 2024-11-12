@@ -12,11 +12,11 @@ dsf2 = xr.open_dataset('doy_mod_ssp245_ff.nc')
 dsn5 = xr.open_dataset('doy_mod_ssp585_nf.nc')
 dsf5 = xr.open_dataset('doy_mod_ssp585_ff.nc')
 
-for f in ['dsn5', 'dsf5', 'dsn2', 'dsf2', 'dsn1', 'dsf1', 'dsh', 'dss']:
+for f in ['dsn5', 'dsf5', 'dsn2', 'dsf2', 'dsn1', 'dsf1', 'dsh']:
     exec(f"{f}['doy'] = {f}['__xarray_dataarray_variable__']")
     exec(f"{f} = {f}.drop(['__xarray_dataarray_variable__'])")
 
-weights = np.cos(np.deg2rad(dss.lat))
+weights = np.cos(np.deg2rad(dsh.lat))
 weights.name = "weights"
 
 #fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6), subplot_kw={'projection': ccrs.NorthPolarStereo()})
