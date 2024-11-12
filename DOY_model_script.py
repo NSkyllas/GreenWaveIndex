@@ -4,8 +4,8 @@ import xarray as xr
 import streamlit as st
 
 
-dsh = xr.open_dataset('doy_mod_hist.nc')
-dsn1 = xr.open_dataset('doy_mod_ssp126_nf.nc')
+dsh = xr.open_dataset('doy_mod_hist.nc', engine = 'netcdf4')
+dsn1 = xr.open_dataset('doy_mod_ssp126_nf.nc', engine = 'netcdf4')
 dsf1 = xr.open_dataset('doy_mod_ssp126_ff.nc')
 dsn2 = xr.open_dataset('doy_mod_ssp245_nf.nc')
 dsf2 = xr.open_dataset('doy_mod_ssp245_ff.nc')
