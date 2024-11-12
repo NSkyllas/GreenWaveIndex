@@ -7,10 +7,10 @@ import streamlit as st
 dsh = xr.open_dataset('doy_mod_hist.nc', engine = 'netcdf4')
 dsn1 = xr.open_dataset('doy_mod_ssp126_nf.nc', engine = 'netcdf4')
 dsf1 = xr.open_dataset('doy_mod_ssp126_ff.nc', engine = 'netcdf4')
-dsn2 = xr.open_dataset('doy_mod_ssp245_nf.nc')
-dsf2 = xr.open_dataset('doy_mod_ssp245_ff.nc')
-dsn5 = xr.open_dataset('doy_mod_ssp585_nf.nc')
-dsf5 = xr.open_dataset('doy_mod_ssp585_ff.nc')
+dsn2 = xr.open_dataset('doy_mod_ssp245_nf.nc', engine = 'netcdf4')
+dsf2 = xr.open_dataset('doy_mod_ssp245_ff.nc', engine = 'netcdf4')
+dsn5 = xr.open_dataset('doy_mod_ssp585_nf.nc', engine = 'netcdf4')
+dsf5 = xr.open_dataset('doy_mod_ssp585_ff.nc', engine = 'netcdf4')
 
 for f in ['dsn5', 'dsf5', 'dsn2', 'dsf2', 'dsn1', 'dsf1', 'dsh']:
     exec(f"{f}['doy'] = {f}['__xarray_dataarray_variable__']")
