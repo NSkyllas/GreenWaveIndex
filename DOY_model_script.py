@@ -34,7 +34,7 @@ scenario = st.sidebar.selectbox(
 period = st.sidebar.selectbox('Pick a time period', ['No selection', 'Present', 'Near future (2040-2060)', 'Far future (2080-2100)'])
 #season = st.sidebar.selectbox('Pick a season', ['No selection', 'Spring', 'Autumn'])
 
-'You selected: ', population, year, season
+'You selected: ', scenario, period
 
 if (scenario == 'historical') & (period == 'Present'):
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
