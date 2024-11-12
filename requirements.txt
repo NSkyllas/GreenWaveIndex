@@ -4,7 +4,7 @@ matplotlib==3.7.1
 netCDF4==1.7.2
 h5netcdf==1.4.0
 xarray==2023.5.0
-#shapely==2.0.1
-#pyproj==3.6.0
-#pyshp==2.3
+shapely==2.0.1
+pyproj==3.6.0
+pyshp==2.3
 cartopy==0.21.1
