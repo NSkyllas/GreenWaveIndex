@@ -32,7 +32,6 @@ scenario = st.sidebar.selectbox(
     'Pick a scenario',['No selection', 'historical', 'SSP-2.45', 'SSP-5.85'])
 period = st.sidebar.selectbox('Pick a time period', ['No selection', 'Present', 'Near future (2040-2060)', 'Far future (2080-2100)'])
 #season = st.sidebar.selectbox('Pick a season', ['No selection', 'Spring', 'Autumn'])
-
 'You selected: ', scenario, period
 
 if (scenario == 'historical') & (period == 'Present'):
