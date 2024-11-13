@@ -120,7 +120,7 @@ elif (scenario == 'SSP-5.85') & (period == 'Far future (2080-2100)') & (plot == 
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
-        (dsf5.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -20, vmax = 20)
+        (dsf5.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = None, vmax = None)
     plt.suptitle('SSP-5.85, mean of 2080 - 2100 (far future)', fontsize = 16)
     plt.tight_layout()
     st.pyplot(fig)
