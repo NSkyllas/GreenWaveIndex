@@ -93,7 +93,7 @@ elif (scenario == 'SSP-2.45') & (period == 'Near future (2040-2060)') & (plot ==
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
-        (dsn2.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40)
+        (dsn2.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40, cmap = 'RdBu_r')
     plt.suptitle('SSP-2.45, mean of 2040 - 2060 (near future)', fontsize = 16)
     plt.tight_layout()
     st.pyplot(fig)
@@ -102,7 +102,7 @@ elif (scenario == 'SSP-2.45') & (period == 'Far future (2080-2100)') & (plot == 
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
-        (dsf2.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40)
+        (dsf2.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40, cmap = 'RdBu_r')
     plt.suptitle('SSP-2.45, mean of 2040 - 2060 (far future)', fontsize = 16)
     plt.tight_layout()
     st.pyplot(fig)
@@ -111,7 +111,7 @@ elif (scenario == 'SSP-5.85') & (period == 'Near future (2040-2060)') & (plot ==
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
-        (dsn5.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40)
+        (dsn5.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40, cmap = 'RdBu_r')
     plt.suptitle('SSP-5.85, mean of 2040 - 2060 (near future)', fontsize = 16)
     plt.tight_layout()
     st.pyplot(fig)
@@ -120,7 +120,7 @@ elif (scenario == 'SSP-5.85') & (period == 'Far future (2080-2100)') & (plot == 
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
-        (dsf5.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40)
+        (dsf5.doy.sel(model = m).mean(['time']) - dsh.doy.sel(model = m).mean(['time'])).plot(ax = ax[i], vmin = -40, vmax = 40, cmap = 'RdBu_r')
     plt.suptitle('SSP-5.85, mean of 2080 - 2100 (far future)', fontsize = 16)
     plt.tight_layout()
     st.pyplot(fig)
