@@ -32,11 +32,11 @@ model_list = dsn2.model.values
 scenario = st.sidebar.selectbox(
     'Pick a scenario',['No selection', 'historical', 'SSP-2.45', 'SSP-5.85'])
 period = st.sidebar.selectbox('Pick a time period', ['No selection', 'Present', 'Near future (2040-2060)', 'Far future (2080-2100)'])
-#season = st.sidebar.selectbox('Pick a season', ['No selection', 'Spring', 'Autumn'])
+plot = st.sidebar.selectbox('Pick a plot type', ['No selection', 'Absolute values', 'Differences'])
 
 'You selected: ', scenario, period
 
-if (scenario == 'historical') & (period == 'Present'):
+if (scenario == 'historical') & (period == 'Present') & (plot == 'Absolute values'):
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
@@ -54,7 +54,7 @@ if (scenario == 'historical') & (period == 'Present'):
 #        ax[i].set_title(m)
 #    plt.suptitle('Historical, mean of 2000 - 2013', fontsize = 16)
 
-elif (scenario == 'SSP-2.45') & (period == 'Near future (2040-2060)'):
+elif (scenario == 'SSP-2.45') & (period == 'Near future (2040-2060)') & (plot == 'Absolute values'):
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
@@ -63,7 +63,7 @@ elif (scenario == 'SSP-2.45') & (period == 'Near future (2040-2060)'):
     plt.tight_layout()
     st.pyplot(fig)
 
-elif (scenario == 'SSP-2.45') & (period == 'Far future (2080-2100)'):
+elif (scenario == 'SSP-2.45') & (period == 'Far future (2080-2100)') & (plot == 'Absolute values'):
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
@@ -72,7 +72,7 @@ elif (scenario == 'SSP-2.45') & (period == 'Far future (2080-2100)'):
     plt.tight_layout()
     st.pyplot(fig)
 
-elif (scenario == 'SSP-5.85') & (period == 'Near future (2040-2060)'):
+elif (scenario == 'SSP-5.85') & (period == 'Near future (2040-2060)') & (plot == 'Absolute values'):
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
@@ -81,7 +81,7 @@ elif (scenario == 'SSP-5.85') & (period == 'Near future (2040-2060)'):
     plt.tight_layout()
     st.pyplot(fig)
 
-elif (scenario == 'SSP-5.85') & (period == 'Far future (2080-2100)'):
+elif (scenario == 'SSP-5.85') & (period == 'Far future (2080-2100)') & (plot == 'Absolute values'):
     fig, ax = plt.subplots(ncols = 5, nrows = 2, figsize = (20, 6))
     ax = ax.flatten()
     for i, m in enumerate(model_list):
